@@ -1,19 +1,19 @@
 # First Person Shooter - prototype in Unity
 
-First Person Shooter game protype utilizing event based architecture with the use of unity events, unity actions and custom game events to ensure modularity and scalabilty.
+First Person Shooter game prototype utilizing event-based architecture with the use of unity events, unity actions, and custom game events to ensure modularity and scalability.
 
-## Table of Contest
+## Table of Contents
 
 * [Controls](#Controls)
 * [Prototype contents](#Prototype-contents)
-* [Event based architecture](#Event-based-architecture)
+* [Event-based architecture](#Event-based-architecture)
 * [Technologies](#Technologies)
 
 ## Controls
 
 #### Keyboard & Mouse
 Classic FPS controls:
-Move mouse to look and turn around. Use AWSD keys to move your character. To jump press SPACEBAR key. To attack press left mouse button. Use mouse scroll to change your weapon.
+Move the mouse to look and turn around. Use AWSD keys to move your character. To jump press the SPACEBAR key. To attack press the left mouse button. Use the mouse scroll to change your weapon.
 
 ## Prototype contents
 
@@ -32,14 +32,14 @@ Move mouse to look and turn around. Use AWSD keys to move your character. To jum
 * [Health bars](https://assetstore.unity.com/packages/2d/gui/icons/elemental-meters-173133),
 * [Font](https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059).
 
-## Event based architecure
+## Event-based architecure
 
-Using events allows for flexible, modular and higly scalable games. This approach allows you completly seperate different parts of your game avoiding errors when implementning new mechanics and refactoring old bits of code.
+The event-based architecture allows for flexible and highly scalable games by separating projects into different modules. Communication between those modules happens via events which helps to avoid errors when implementing new mechanics or refactoring old bits of code. A new module can be simply connected to others by listening or raising events, while other modules remain untouched. This modular approach also improves code reusability and helps to pinpoint problems during debugging.
 
 ### This prototype utilizes:
-* Unity Events - allowing for connecting specific actions from inspector (for example instantiating explosion when object is destroyed), 
-* Unity Actions - allowing for listening and reacting to events from specific broadcaster (for example PlayerMovement script listens to InputManager events to know when to move player's character),
-* Game Events (custom scriptable objects) - allowing for listeners to react to an event without him knowing anything about the broadcaster and without broadcaster knowing about the listener (for example when the weapon type is changed, event is raised without specific addressee. Next UI Manager changes player's crosshair without the need of watching any specific broadcaster),
+* Unity Events - allowing for connecting specific actions from the inspector (for example instantiating explosion when the object is destroyed), 
+* Unity Actions - allowing for listening and reacting to events from specific broadcaster (for example PlayerMovement script listens to InputManager events to know when to move a player's character),
+* Game Events (custom scriptable objects) - allowing for listeners to react to an event without knowing anything about the broadcaster and without the broadcaster knowing about the listener (for example when the weapon type is changed, the event is raised without a specific addressee. Next UI Manager changes player's crosshair without the need of watching any specific broadcaster).
 
 ### More about this type of architecture can be found here:
 * [Game Architecture with Scriptable Objects](https://youtu.be/raQ3iHhE_Kk?si=w9i9lRURwXUbgs6x),
