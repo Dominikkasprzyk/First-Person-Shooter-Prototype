@@ -1439,7 +1439,7 @@ MonoBehaviour:
     weapons
 
 
-    every weapon has its own damage, range, look and fire effects'
+    every weapon has its own damage, range, appearance and fire effects'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98ba25cadedf804448d296c5ab23daad, type: 2}
   m_sharedMaterial: {fileID: 2173893158695520543, guid: 98ba25cadedf804448d296c5ab23daad,
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   speed: 20
   jumpHeight: 5
   gravitationalPull: 100
-  turnSensitivity: 20
+  turnSensitivity: 50
   lookUpDownSensitivity: 0.15
   maxLookUpDownRotation: 85
   groundMask:
@@ -2450,11 +2450,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'THIS PROTYPE UTILIZES EVENT BASED ARCHITECTURE WITH THE USE OF UNITY EVENTS,
-    UNITY ACTIONS AND CUSTOM GAME EVENTS TO ENSURE MODULARITY AND SCALABILTY.
-
-
-'
+  m_text: THIS PROTOTYPE UTILIZES EVENT-BASED ARCHITECTURE WITH THE USE OF UNITY
+    EVENTS, UNITY ACTIONS, AND CUSTOM GAME EVENTS TO ENSURE MODULARITY AND SCALABILITY.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98ba25cadedf804448d296c5ab23daad, type: 2}
   m_sharedMaterial: {fileID: 2173893158695520543, guid: 98ba25cadedf804448d296c5ab23daad,
