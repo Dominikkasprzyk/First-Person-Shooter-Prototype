@@ -1,6 +1,7 @@
 # First Person Shooter - prototype in Unity
 
 First Person Shooter game prototype utilizing event-based architecture with the use of unity events, unity actions, and custom Scriptable Objects game events to ensure modularity and scalability.
+### This project uses Unity's Universal Render Pipeline (URP).
 
 ## Table of Contents
 
@@ -23,9 +24,9 @@ Move the mouse to look and turn around. Use AWSD keys to move your character. To
 * Fabric system (specific weapons can destroy specific materials),
 * Tutorial scene,
 * Rotating weapons (facing whatever you are aiming at),
-* Weapon dependent crosshair system (differen weapon - differen crosshair).
+* Weapon dependent crosshair system (different weapon - different crosshair).
 
-  ### Cosmetic elements used in this prototype:
+### Cosmetic elements used in this prototype:
 * [Lasers and explosions particles](https://assetstore.unity.com/packages/vfx/particles/spells/rpg-vfx-bundle-133704),
 * [Weapon models](https://assetstore.unity.com/packages/3d/props/weapons/weapon-master-scifi-weapon-1-lite-134423),
 * [Sound effects](https://assetstore.unity.com/packages/audio/sound-fx/shooting-sound-177096),
@@ -44,7 +45,6 @@ The event-based architecture allows for flexible and highly scalable games by se
 ### More about this type of architecture can be found here:
 * [Game Architecture with Scriptable Objects](https://youtu.be/raQ3iHhE_Kk?si=w9i9lRURwXUbgs6x),
 * [Game architecture with ScriptableObjects](https://youtu.be/WLDgtRNK2VE?si=GlHQINsp48bGBXC7).
-
 
 ## Technologies
 Unity version 2021.3.5f1, C# programming language
