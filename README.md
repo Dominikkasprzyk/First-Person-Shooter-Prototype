@@ -1,6 +1,6 @@
 # First Person Shooter - prototype in Unity
 
-First Person Shooter game prototype utilizing event-based architecture with the use of unity events, unity actions, and custom game events to ensure modularity and scalability.
+First Person Shooter game prototype utilizing event-based architecture with the use of unity events, unity actions, and custom Scriptable Objects game events to ensure modularity and scalability.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ Move the mouse to look and turn around. Use AWSD keys to move your character. To
 
 ## Prototype contents
 
-* Classic FPS movement (see [controls](#controls)),
+* Classic FPS movement utilizing Unity's New Input System (see [controls](#controls)),
 * Destroyable objects,
 * Different weapons,
 * Fabric system (specific weapons can destroy specific materials),
@@ -39,7 +39,7 @@ The event-based architecture allows for flexible and highly scalable games by se
 ### This prototype utilizes:
 * Unity Events - allowing for connecting specific actions from the inspector (for example instantiating explosion when the object is destroyed), 
 * Unity Actions - allowing for listening and reacting to events from specific broadcaster (for example PlayerMovement script listens to InputManager events to know when to move a player's character),
-* Game Events (custom scriptable objects) - allowing for listeners to react to an event without knowing anything about the broadcaster and without the broadcaster knowing about the listener (for example when the weapon type is changed, the event is raised without a specific addressee. Next UI Manager changes player's crosshair without the need of watching any specific broadcaster).
+* Game Events (custom Scriptable Objects) - allowing for listeners to react to an event without knowing anything about the broadcaster and without the broadcaster knowing about the listener (for example when the weapon type is changed, the event is raised without a specific addressee. Next UI Manager changes player's crosshair without the need of watching any specific broadcaster).
 
 ### More about this type of architecture can be found here:
 * [Game Architecture with Scriptable Objects](https://youtu.be/raQ3iHhE_Kk?si=w9i9lRURwXUbgs6x),
