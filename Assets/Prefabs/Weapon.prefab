@@ -51,9 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageType: 0
-  cooldown: 0.5
   range: 50
-  magazineCapacity: 10
   inputManager: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
   typeChangedEvent: {fileID: 0}
   weaponFiredEvent:
@@ -303,7 +301,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f3640b2abd47e284c8f49acaf7dc2411, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
