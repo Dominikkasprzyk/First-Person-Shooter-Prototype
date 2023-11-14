@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FirstPersonShooter.unity
+    path: Assets/Scenes/ShootingRange.unity
     guid: 2132442ab82d0724699cc75f62d49ad8
   m_configObjects: {}
