@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2216c965e233bbc45a5ba85527a9e2f4, type: 3}
-  m_Name: WaterWeaponEquiped
+  m_Name: WeaponChanged
   m_EditorClassIdentifier: 

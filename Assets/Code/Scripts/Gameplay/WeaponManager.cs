@@ -7,7 +7,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private List<GameObject> availableWeapons;
     [SerializeField] private Transform weaponAnchorPoint;
     private int currentWeaponIndex;
-    
+
+    [SerializeField] private GameEvent weaponChangedEvent;
+
     [Header("References")]
     [SerializeField] private InputManager inputManager;
 

@@ -1,23 +1,45 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/// <summary>
+/// The CustomGameEvent class allows for passing data through the events.
+/// </summary>
+[System.Serializable]
+public class CustomGameEvent : UnityEvent<Component, object> { }
+
+/// <summary>
+/// The GameEventListener class can be attached to the GameObejcts to listen
+/// for specific events and respond with CustomGameEvent. 
+/// </summary>
 public class GameEventListener : MonoBehaviour
 {
-    public GameEvent Event;
-    public UnityEvent Response;
+    /// <summary>
+    /// GameEvent to listen for.
+    /// </summary>
+    public GameEvent gameEvent;
+    /// <summary>
+    /// Response to the GameEvent.
+    /// </summary>
+    public CustomGameEvent response;
 
     private void OnEnable()
     {
-        Event.AddListener(this);
+        gameEvent.AddListener(this);
     }
 
     private void OnDisable()
     {
-        Event.RemoveListener(this);
+        gameEvent.RemoveListener(this);
     }
 
-    public void OnEventRaised()
+    /// <summary>
+    /// Invokes the response when the event is detected.
+    /// </summary>
+    /// <param name="sender">Sender of the event.</param>
+    /// <param name="data">Data passed.</param>
+    public void OnEventRaised(Component sender, object data)
     {
-        Response.Invoke();
+        response.Invoke(sender, data);
     }
 }

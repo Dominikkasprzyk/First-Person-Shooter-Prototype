@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private InputManager inputManager;
-    [SerializeField] private GameEvent typeChangedEvent;
+    [SerializeField] private GameEvent weaponChangedEvent;
 
     public UnityEvent weaponFiredEvent;
 
@@ -21,9 +21,9 @@ public class Weapon : MonoBehaviour
     private void OnEnable()
     {
         inputManager.attackEvent += PerformAttack;
-        if(typeChangedEvent != null)
+        if(weaponChangedEvent != null)
         {
-            typeChangedEvent.Raise();
+            weaponChangedEvent.Raise(this, damageType);
         }
     }
 
