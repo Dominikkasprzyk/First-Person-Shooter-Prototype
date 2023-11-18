@@ -58,6 +58,7 @@ public abstract class Weapon : MonoBehaviour
 
     private void OnAttackCharge()
     {
+        _waitingForCharge = true;
         if (weaponBaseStats.MaxChargeUpTime <= 0 && _canFire)
         {
             weaponFiredEvent.Raise(this, null);
@@ -69,10 +70,7 @@ public abstract class Weapon : MonoBehaviour
             if (_canFire)
             {
                 _chargingRoutine = StartCoroutine(ChargeWeaponUp());
-            } else
-            {
-                _waitingForCharge = true;
-            }
+            } 
         }
     }
 
