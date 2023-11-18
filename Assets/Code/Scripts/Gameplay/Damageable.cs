@@ -5,7 +5,7 @@ public class Damageable : MonoBehaviour
 {
     public event UnityAction<float> healthPercentChangedEvent;
 
-    [SerializeField] private UnityEvent destroyedEvent;
+    [SerializeField] private GameEvent _destroyedEvent;
     public Fabric madeOf;
     [SerializeField] private float maxHealthPoints = 10f;
 
@@ -39,7 +39,7 @@ public class Damageable : MonoBehaviour
 
     private void Destroy()
     {
-        destroyedEvent.Invoke();
+        _destroyedEvent.Raise(this, new Pose(transform.position, transform.rotation));
         Destroy(gameObject);
     }
 }

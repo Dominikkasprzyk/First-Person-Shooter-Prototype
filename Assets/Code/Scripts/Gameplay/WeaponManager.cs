@@ -4,11 +4,11 @@ using UnityEngine.Events;
 
 public class WeaponManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> availableWeapons;
+    [SerializeField] private List<Weapon> availableWeapons;
     [SerializeField] private Transform weaponAnchorPoint;
     private int currentWeaponIndex;
-
-    [SerializeField] private GameEvent weaponChangedEvent;
+    private List<Weapon> _spawnedWeapons;
+    [SerializeField] private GameEvent _weaponChangedEvent;
 
     [Header("References")]
     [SerializeField] private InputManager inputManager;
@@ -20,7 +20,15 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnWeapon();
+        _spawnedWeapons = new List<Weapon>();
+        foreach(Weapon weapon in availableWeapons)
+        {
+            GameObject spawnedWeapon = Instantiate(weapon.gameObject, weaponAnchorPoint.position, weaponAnchorPoint.rotation);
+            spawnedWeapon.transform.parent = weaponAnchorPoint;
+            spawnedWeapon.SetActive(false);
+            _spawnedWeapons.Add(spawnedWeapon.GetComponent<Weapon>());
+        }
+        ChangeWeapon();
     }
 
     private void OnEnable()
@@ -59,17 +67,17 @@ public class WeaponManager : MonoBehaviour
 
         if (_previousWeaponIndex != currentWeaponIndex)
         {
-            SpawnWeapon();
+            ChangeWeapon();
         }
     }
 
-    private void SpawnWeapon()
+    private void ChangeWeapon()
     {
-        foreach (Transform child in weaponAnchorPoint)
+        foreach (Weapon weapon in _spawnedWeapons)
         {
-            Destroy(child.gameObject);
+            weapon.gameObject.SetActive(false);
         }
-        GameObject _newWeapon = Instantiate(availableWeapons[currentWeaponIndex], weaponAnchorPoint.position, weaponAnchorPoint.rotation);
-        _newWeapon.transform.parent = weaponAnchorPoint;
+        _spawnedWeapons[currentWeaponIndex].gameObject.SetActive(true);
+        _weaponChangedEvent.Raise(this, _spawnedWeapons[currentWeaponIndex].weaponBaseStats.DamageType);
     }
 }

@@ -27,8 +27,7 @@ Transform:
   m_LocalPosition: {x: 0.32, y: -0.2, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8197890452785741570}
+  m_Children: []
   m_Father: {fileID: 1261852462997325599}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,9 +95,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+      - m_Target: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: OnAttack
+        m_MethodName: OnAttackRelease
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -112,7 +111,7 @@ MonoBehaviour:
     m_ActionName: FpsPlayerControls/Attack[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+      - m_Target: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -128,7 +127,7 @@ MonoBehaviour:
     m_ActionName: FpsPlayerControls/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+      - m_Target: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: OnTurn
         m_Mode: 0
@@ -144,7 +143,7 @@ MonoBehaviour:
     m_ActionName: FpsPlayerControls/Turn[/Mouse/delta/x]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+      - m_Target: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: OnLookUpDown
         m_Mode: 0
@@ -160,7 +159,7 @@ MonoBehaviour:
     m_ActionName: FpsPlayerControls/LookUpDown[/Mouse/delta/y]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+      - m_Target: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
@@ -176,9 +175,9 @@ MonoBehaviour:
     m_ActionName: FpsPlayerControls/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+      - m_Target: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: OnChangenWeapon
+        m_MethodName: OnChangeWeapon
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -190,6 +189,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e7804404-9085-40fc-baf1-3f6751a656cb
     m_ActionName: FpsPlayerControls/ChangeWeapon[/Mouse/scroll/down,/Mouse/scroll/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnAttackCharge
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8c49f420-27d6-4890-bb23-21355d621ef6
+    m_ActionName: FpsPlayerControls/ChargeAttack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: FpsPlayerControls
@@ -216,7 +231,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  inputManager: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+  inputManager: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
 --- !u!143 &1261852462337013270
 CharacterController:
   m_ObjectHideFlags: 0
@@ -248,11 +263,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableWeapons:
-  - {fileID: 6703136395668000445, guid: 16dc72a2e01859a4686de65a19313f33, type: 3}
-  - {fileID: 2608294149615280806, guid: d86dfaa62796ac1408a96d4945a0d089, type: 3}
-  - {fileID: 5749206729763490158, guid: 59b41c638e4bd6c45bc6ea13aeb668f5, type: 3}
+  - {fileID: 2862690313903305841, guid: 16dc72a2e01859a4686de65a19313f33, type: 3}
+  - {fileID: 6813531790916753514, guid: d86dfaa62796ac1408a96d4945a0d089, type: 3}
+  - {fileID: 3852068252976313250, guid: 59b41c638e4bd6c45bc6ea13aeb668f5, type: 3}
   weaponAnchorPoint: {fileID: 807077908500122439}
-  inputManager: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
+  _weaponChangedEvent: {fileID: 11400000, guid: 3058ce8ae4592344d9393e802082b6d7,
+    type: 2}
+  inputManager: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
 --- !u!1 &1261852462997325594
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,93 +389,3 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1001 &1261852463728817649
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 807077908500122439}
-    m_Modifications:
-    - target: {fileID: 1158255256083316972, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1235767048366591341, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703136395668000445, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_Name
-      value: WeaponFireVariant
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703136395668000445, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 16dc72a2e01859a4686de65a19313f33, type: 3}
---- !u!4 &8197890452785741570 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6937726849721944819, guid: 16dc72a2e01859a4686de65a19313f33,
-    type: 3}
-  m_PrefabInstance: {fileID: 1261852463728817649}
-  m_PrefabAsset: {fileID: 0}

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2228031269646445505, guid: 350ef913000a25e4e9715cdb298f8665,
         type: 3}
       propertyPath: m_Name
-      value: WeaponFireVariant
+      value: GunFireVariant
       objectReference: {fileID: 0}
     - target: {fileID: 2569897757437882255, guid: 350ef913000a25e4e9715cdb298f8665,
         type: 3}
@@ -94,5 +94,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1b12ebe37b6d8844296d6baef15a1b9b,
         type: 2}
+    - target: {fileID: 7230401689690165517, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: damageType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 350ef913000a25e4e9715cdb298f8665, type: 3}

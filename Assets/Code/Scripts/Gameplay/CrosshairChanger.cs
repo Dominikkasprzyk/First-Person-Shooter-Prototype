@@ -22,6 +22,5 @@ public class CrosshairChanger : MonoBehaviour
                 crosshair.sprite = plantCrosshair;
                 break;
         }
-
     }
 }

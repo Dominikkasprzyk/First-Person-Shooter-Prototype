@@ -6,12 +6,12 @@
             "id": "b6adcb0e-0158-4a7f-9667-6b650f22d2ee",
             "actions": [
                 {
-                    "name": "Attack",
+                    "name": "ReleaseAttack",
                     "type": "Button",
                     "id": "1226818e-9786-48b0-bc7f-4221d3ef09e5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
                 },
                 {
@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ChargeAttack",
+                    "type": "Button",
+                    "id": "8c49f420-27d6-4890-bb23-21355d621ef6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -68,7 +77,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
-                    "action": "Attack",
+                    "action": "ReleaseAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -79,7 +88,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Attack",
+                    "action": "ReleaseAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -234,6 +243,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "ChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87a53629-bcda-446c-89d3-400fdabbdfef",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "ChargeAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6013d4d6-b6ec-4ae4-b8f1-e4291efd4972",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ChargeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

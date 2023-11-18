@@ -1,35 +1,33 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    [Header("Weapon parameters")]
-    [SerializeField] private float damage = 1f;
-    [SerializeField] private Fabric damageType;
+    [field: SerializeField] public WeaponSO weaponBaseStats { get; private set; }
     [Min(0f)]
-    [SerializeField] private float range = 50f;
-    
+
+    private float _chargePercent = 0f;
+    private Coroutine _chargingRoutine;
 
     [Header("References")]
     [SerializeField] private InputManager inputManager;
-    [SerializeField] private GameEvent weaponChangedEvent;
 
-    public UnityEvent weaponFiredEvent;
+    [Header("Events")]
+    public GameEvent weaponFiredEvent;
 
-    private Transform playerCameraTransform;
+    protected Transform playerCameraTransform;
 
     private void OnEnable()
     {
-        inputManager.attackEvent += PerformAttack;
-        if(weaponChangedEvent != null)
-        {
-            weaponChangedEvent.Raise(this, damageType);
-        }
+        inputManager.attackReleaseEvent += PerformAttack;
+        inputManager.attackChargeEvent += ChargeUpAttack;
     }
 
     private void OnDisable()
     {
-        inputManager.attackEvent -= PerformAttack;
+        inputManager.attackReleaseEvent -= PerformAttack;
+        inputManager.attackChargeEvent -= ChargeUpAttack;
     }
 
     private void Awake()
@@ -37,16 +35,37 @@ public class Weapon : MonoBehaviour
         playerCameraTransform = Camera.main.transform;    
     }
 
-    public void PerformAttack()
+    public virtual void PerformAttack()
     {
-        weaponFiredEvent.Invoke();
-        RaycastHit hit;
-        if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, range))
+        if(_chargingRoutine != null)
+            StopCoroutine(_chargingRoutine);
+        if (weaponBaseStats.MinChargePercent <= _chargePercent)
         {
-            if(hit.collider.GetComponent<Damageable>() != null)
+            weaponFiredEvent.Raise(this, null);
+        }
+        _chargePercent = 0;
+    }
+
+    public virtual void ChargeUpAttack()
+    {
+        _chargingRoutine = StartCoroutine(ChargeWeaponUp());
+    }
+
+    private IEnumerator ChargeWeaponUp()
+    {
+        float currentChargingTime = 0f;
+        float singleTickDuration = 0.1f;
+        while (currentChargingTime < weaponBaseStats.MaxChargeUpTime)
+        {
+            yield return new WaitForSeconds(singleTickDuration);
             {
-                hit.collider.GetComponent<Damageable>().TakeHit(damage, damageType);
+                currentChargingTime += singleTickDuration;
+                _chargePercent += singleTickDuration / weaponBaseStats.MaxChargeUpTime;
             }
+        }
+        if(_chargePercent > 1)
+        {
+            _chargePercent = 1;
         }
     }
 }

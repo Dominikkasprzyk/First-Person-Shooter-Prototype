@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2228031269646445505, guid: 350ef913000a25e4e9715cdb298f8665,
         type: 3}
       propertyPath: m_Name
-      value: WeaponWaterVariant
+      value: GunWaterVariant
       objectReference: {fileID: 0}
     - target: {fileID: 2569897757437882255, guid: 350ef913000a25e4e9715cdb298f8665,
         type: 3}
@@ -87,6 +87,17 @@ PrefabInstance:
       propertyPath: typeChangedEvent
       value: 
       objectReference: {fileID: 11400000, guid: ac387e0908839114ca66fdd3fd482472,
+        type: 2}
+    - target: {fileID: 7230401689690165517, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: damageType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230401689690165517, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: <weaponBaseStats>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c7f537cca4bd284aa36ee9c5cd79eb7,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 350ef913000a25e4e9715cdb298f8665, type: 3}

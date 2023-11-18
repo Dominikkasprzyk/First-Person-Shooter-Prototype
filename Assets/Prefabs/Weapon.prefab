@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2569897757437882255}
-  - component: {fileID: 6117436099829921824}
   - component: {fileID: 4824217035449975212}
   - component: {fileID: 5628574047352074237}
   - component: {fileID: 4475209285973031658}
+  - component: {fileID: 7230401689690165517}
+  - component: {fileID: 5473352683943040982}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -37,50 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6117436099829921824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2228031269646445505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 411aa537a27d8f344a35c65efff49d71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  damageType: 0
-  range: 50
-  inputManager: {fileID: 11400000, guid: 53858e8f159404d4f8f7c6970f80c185, type: 2}
-  weaponChangedEvent: {fileID: 11400000, guid: ac387e0908839114ca66fdd3fd482472, type: 2}
-  weaponFiredEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5628574047352074237}
-        m_TargetAssemblyTypeName: LaserController, Assembly-CSharp
-        m_MethodName: EnableLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4475209285973031658}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &4824217035449975212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +166,51 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7230401689690165517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228031269646445505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 078a296986b47dd42a2f4d81cf2b0dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <weaponBaseStats>k__BackingField: {fileID: 11400000, guid: 7b6842ef34c6dda469c22e86a4b25278,
+    type: 2}
+  inputManager: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
+  weaponFiredEvent: {fileID: 11400000, guid: a5384e32e75d1a740a1f9481332927ae, type: 2}
+  range: 50
+--- !u!114 &5473352683943040982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228031269646445505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443ea6c5282216441a427320673d8f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: a5384e32e75d1a740a1f9481332927ae, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5628574047352074237}
+        m_TargetAssemblyTypeName: LaserController, Assembly-CSharp
+        m_MethodName: EnableLaser
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5966018529671227409
 GameObject:
   m_ObjectHideFlags: 0

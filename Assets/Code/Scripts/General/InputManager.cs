@@ -6,18 +6,28 @@ using UnityEngine.InputSystem;
 public class InputManager : ScriptableObject
 {
     public event UnityAction jumpEvent;
-    public event UnityAction attackEvent;
+    public event UnityAction attackReleaseEvent;
+    public event UnityAction attackChargeEvent;
     public event UnityAction<Vector2> moveEvent;
     public event UnityAction<float> turnEvent;
     public event UnityAction<float> lookUpDownEvent;
     public event UnityAction<float> changeWeaponEvent;
 
-    public void OnAttack(InputAction.CallbackContext _context)
+    public void OnAttackRelease(InputAction.CallbackContext _context)
     {
-        if(attackEvent != null 
+        if(attackReleaseEvent != null 
             && _context.phase == InputActionPhase.Performed)
         {
-            attackEvent.Invoke();
+            attackReleaseEvent.Invoke();
+        }
+    }
+
+    public void OnAttackCharge(InputAction.CallbackContext _context)
+    {
+        if (attackChargeEvent != null
+            && _context.phase == InputActionPhase.Performed)
+        {
+            attackChargeEvent.Invoke();
         }
     }
 
@@ -54,7 +64,7 @@ public class InputManager : ScriptableObject
         }
     }
 
-    public void OnChangenWeapon(InputAction.CallbackContext _context)
+    public void OnChangeWeapon(InputAction.CallbackContext _context)
     {
         if (changeWeaponEvent != null)
         {
