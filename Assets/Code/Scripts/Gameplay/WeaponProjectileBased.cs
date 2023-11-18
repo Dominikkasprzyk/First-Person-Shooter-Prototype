@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponProjectileBased : Weapon
 {
-    public override void PerformAttack()
+    protected override void Fire()
     {
         
     }

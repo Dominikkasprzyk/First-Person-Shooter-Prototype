@@ -3,10 +3,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class WeaponSO : ScriptableObject
 {
-    [field: SerializeField, Tooltip("True if this weapon deals continous damage over time (e.g. flame thrower, laser). " +
-        "False if this weapon deals damage at intervals (e.g. bow, riffle, gun, axe, sword). ")] 
-    public bool IsContinous { get; private set; }
-
     [field: SerializeField, Tooltip("True if this weapon supports full auto mode. False if the weapon should be released to fire after charging. ")] 
     public bool IsFullyAuto { get; private set; }
 

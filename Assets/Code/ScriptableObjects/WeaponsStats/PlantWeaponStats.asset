@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec46ba2d4f5e82e4c9523cdfc49a29cf, type: 3}
   m_Name: PlantWeaponStats
   m_EditorClassIdentifier: 
-  <IsContinous>k__BackingField: 0
   <IsFullyAuto>k__BackingField: 0
   <MaxChargeUpTime>k__BackingField: 0
   <MinChargePercent>k__BackingField: 0
-  timeBetweenAttacks: 0
+  timeBetweenAttacks: 1
   <Damage>k__BackingField: 1
   <DamageType>k__BackingField: 2

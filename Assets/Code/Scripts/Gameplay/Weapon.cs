@@ -5,10 +5,12 @@ using UnityEngine.Events;
 public abstract class Weapon : MonoBehaviour
 {
     [field: SerializeField] public WeaponSO weaponBaseStats { get; private set; }
-    [Min(0f)]
+    [SerializeField] private bool _isContinous;
 
     private float _chargePercent = 0f;
     private Coroutine _chargingRoutine;
+    private bool _canFire = true;
+    private bool _waitingForCharge = false;
 
     [Header("References")]
     [SerializeField] private InputManager inputManager;
@@ -20,14 +22,14 @@ public abstract class Weapon : MonoBehaviour
 
     private void OnEnable()
     {
-        inputManager.attackReleaseEvent += PerformAttack;
-        inputManager.attackChargeEvent += ChargeUpAttack;
+        inputManager.attackReleaseEvent += OnAttackRelease;
+        inputManager.attackChargeEvent += OnAttackCharge;
     }
 
     private void OnDisable()
     {
-        inputManager.attackReleaseEvent -= PerformAttack;
-        inputManager.attackChargeEvent -= ChargeUpAttack;
+        inputManager.attackReleaseEvent -= OnAttackRelease;
+        inputManager.attackChargeEvent -= OnAttackCharge;
     }
 
     private void Awake()
@@ -35,20 +37,43 @@ public abstract class Weapon : MonoBehaviour
         playerCameraTransform = Camera.main.transform;    
     }
 
-    public virtual void PerformAttack()
+    private void OnAttackRelease()
     {
-        if(_chargingRoutine != null)
-            StopCoroutine(_chargingRoutine);
-        if (weaponBaseStats.MinChargePercent <= _chargePercent)
+        _waitingForCharge = false;
+        if (weaponBaseStats.MaxChargeUpTime > 0)
         {
-            weaponFiredEvent.Raise(this, null);
+            if (_chargingRoutine != null)
+                StopCoroutine(_chargingRoutine);
+            if (weaponBaseStats.MinChargePercent <= _chargePercent && _canFire)
+            {
+                weaponFiredEvent.Raise(this, null);
+                Fire();
+                StartCoroutine(WaitBetweenAttacks());
+            }
+            _chargePercent = 0;
         }
-        _chargePercent = 0;
     }
 
-    public virtual void ChargeUpAttack()
+    abstract protected void Fire();
+
+    private void OnAttackCharge()
     {
-        _chargingRoutine = StartCoroutine(ChargeWeaponUp());
+        if (weaponBaseStats.MaxChargeUpTime <= 0 && _canFire)
+        {
+            weaponFiredEvent.Raise(this, null);
+            Fire();
+            StartCoroutine(WaitBetweenAttacks());
+        }
+        else
+        {
+            if (_canFire)
+            {
+                _chargingRoutine = StartCoroutine(ChargeWeaponUp());
+            } else
+            {
+                _waitingForCharge = true;
+            }
+        }
     }
 
     private IEnumerator ChargeWeaponUp()
@@ -66,6 +91,17 @@ public abstract class Weapon : MonoBehaviour
         if(_chargePercent > 1)
         {
             _chargePercent = 1;
+        }
+    }
+
+    private IEnumerator WaitBetweenAttacks()
+    {
+        _canFire = false;
+        yield return weaponBaseStats.CoolDownWait;
+        _canFire = true;
+        if(_waitingForCharge)
+        {
+            OnAttackCharge();
         }
     }
 }

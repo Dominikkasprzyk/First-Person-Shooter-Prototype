@@ -6,9 +6,8 @@ public class WeaponHitscanBased : Weapon
 {
     [SerializeField] private float range = 50f;
 
-    public override void PerformAttack()
+    protected override void Fire()
     {
-        base.PerformAttack();
         RaycastHit hit;
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, range))
         {
