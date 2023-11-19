@@ -37,11 +37,6 @@ Move the mouse to look and turn around. Use AWSD keys to move your character. To
 
 The event-based architecture allows for flexible and highly scalable games by separating projects into different modules. Communication between those modules happens via events which helps to avoid errors when implementing new mechanics or refactoring old bits of code. A new module can be simply connected to others by listening or raising events, while other modules remain untouched. This modular approach also improves code reusability and helps to pinpoint problems during debugging.
 
-### This prototype utilizes:
-* Unity Events - allowing for connecting specific actions from the inspector (for example instantiating explosion when the object is destroyed), 
-* Unity Actions - allowing for listening and reacting to events from specific broadcaster (for example PlayerMovement script listens to InputManager events to know when to move a player's character),
-* Game Events (custom Scriptable Objects) - allowing for listeners to react to an event without knowing anything about the broadcaster and without the broadcaster knowing about the listener (for example when the weapon type is changed, the event is raised without a specific addressee. Next UI Manager changes player's crosshair without the need of watching any specific broadcaster).
-
 ### More about this type of architecture can be found here:
 * [Game Architecture with Scriptable Objects](https://youtu.be/raQ3iHhE_Kk?si=w9i9lRURwXUbgs6x),
 * [Game architecture with ScriptableObjects](https://youtu.be/WLDgtRNK2VE?si=GlHQINsp48bGBXC7).
