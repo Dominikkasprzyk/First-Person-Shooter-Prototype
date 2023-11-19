@@ -5,12 +5,11 @@ using UnityEngine.Events;
 public abstract class Weapon : MonoBehaviour
 {
     [field: SerializeField] public WeaponSO weaponBaseStats { get; private set; }
-    [SerializeField] private bool _isContinous;
 
     private float _chargePercent = 0f;
     private Coroutine _chargingRoutine;
     private bool _canFire = true;
-    private bool _waitingForCharge = false;
+    private bool _holdingCharge = false;
 
     [Header("References")]
     [SerializeField] private InputManager inputManager;
@@ -24,6 +23,7 @@ public abstract class Weapon : MonoBehaviour
     {
         inputManager.attackReleaseEvent += OnAttackRelease;
         inputManager.attackChargeEvent += OnAttackCharge;
+        _canFire = true;
     }
 
     private void OnDisable()
@@ -39,18 +39,19 @@ public abstract class Weapon : MonoBehaviour
 
     private void OnAttackRelease()
     {
-        _waitingForCharge = false;
+        _holdingCharge = false;
         if (weaponBaseStats.MaxChargeUpTime > 0)
         {
             if (_chargingRoutine != null)
-                StopCoroutine(_chargingRoutine);
-            if (weaponBaseStats.MinChargePercent <= _chargePercent && _canFire)
             {
-                weaponFiredEvent.Raise(this, null);
-                Fire();
-                StartCoroutine(WaitBetweenAttacks());
+                StopCoroutine(_chargingRoutine);
+                _chargePercent = 0;
             }
-            _chargePercent = 0;
+            if (weaponBaseStats.MinChargePercent <= _chargePercent && 
+                _canFire)
+            {
+                PerformAttack();
+            }
         }
     }
 
@@ -58,12 +59,10 @@ public abstract class Weapon : MonoBehaviour
 
     private void OnAttackCharge()
     {
-        _waitingForCharge = true;
+        _holdingCharge = true;
         if (weaponBaseStats.MaxChargeUpTime <= 0 && _canFire)
         {
-            weaponFiredEvent.Raise(this, null);
-            Fire();
-            StartCoroutine(WaitBetweenAttacks());
+            PerformAttack();
         }
         else
         {
@@ -90,6 +89,10 @@ public abstract class Weapon : MonoBehaviour
         {
             _chargePercent = 1;
         }
+        if(weaponBaseStats.IsFullyAuto)
+        {
+            PerformAttack();
+        }
     }
 
     private IEnumerator WaitBetweenAttacks()
@@ -97,9 +100,17 @@ public abstract class Weapon : MonoBehaviour
         _canFire = false;
         yield return weaponBaseStats.CoolDownWait;
         _canFire = true;
-        if(_waitingForCharge)
+        if(_holdingCharge && (weaponBaseStats.IsFullyAuto || weaponBaseStats.MaxChargeUpTime > 0))
         {
             OnAttackCharge();
         }
+    }
+
+    private void PerformAttack()
+    {
+        weaponFiredEvent.Raise(this, null);
+        Fire();
+        StartCoroutine(WaitBetweenAttacks());
+        _chargePercent = 0f;
     }
 }

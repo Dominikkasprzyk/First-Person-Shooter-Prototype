@@ -1268,7 +1268,7 @@ PrefabInstance:
     - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
         type: 3}
@@ -1601,7 +1601,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1732129399}
   - {fileID: 1809058104}
   - {fileID: 197242776}
   - {fileID: 579980663}
@@ -1629,7 +1628,7 @@ PrefabInstance:
     - target: {fileID: 5479357660110937045, guid: 5493a43fa6afe2c41bc9794376e7dbb6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5479357660110937045, guid: 5493a43fa6afe2c41bc9794376e7dbb6,
         type: 3}
@@ -2236,7 +2235,7 @@ PrefabInstance:
     - target: {fileID: 5479357660110937045, guid: 76643195d20961040a3d54b88e25409b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5479357660110937045, guid: 76643195d20961040a3d54b88e25409b,
         type: 3}
@@ -3177,154 +3176,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &1732129393
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 741005179}
-    m_Modifications:
-    - target: {fileID: 384836969161073971, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 384836969161073971, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357658936247612, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: maxHealthPoints
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: destroyedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: destroyedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: destroyedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1732129395}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: destroyedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: destroyedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: RestartLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: destroyedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: LevelRestarter, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937041, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: destroyedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479357660110937046, guid: b806f6824a258b0438794d82f52e455a,
-        type: 3}
-      propertyPath: m_Name
-      value: DamageableWoodVariant
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b806f6824a258b0438794d82f52e455a, type: 3}
---- !u!1 &1732129394 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5479357660110937046, guid: b806f6824a258b0438794d82f52e455a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1732129393}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1732129395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732129394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36b7b67c293892488a227245ad623a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1732129399 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5479357660110937045, guid: b806f6824a258b0438794d82f52e455a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1732129393}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1809058104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5479357660110937045, guid: f44ebdbdc2835d44fb5eddc39a808552,
@@ -3692,7 +3543,7 @@ PrefabInstance:
     - target: {fileID: 5479357660110937045, guid: f44ebdbdc2835d44fb5eddc39a808552,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5479357660110937045, guid: f44ebdbdc2835d44fb5eddc39a808552,
         type: 3}
@@ -4235,11 +4086,7 @@ MonoBehaviour:
     WATER DAMAGES FIRE
 
     WOOD
-    CAM BE DAMAGED BY ANYTHING
-
-    DESTROY THE SPHERE TO RESET THE LEVEL
-
-    v'
+    CAM BE DAMAGED BY ANYTHING'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98ba25cadedf804448d296c5ab23daad, type: 2}
   m_sharedMaterial: {fileID: 2173893158695520543, guid: 98ba25cadedf804448d296c5ab23daad,
