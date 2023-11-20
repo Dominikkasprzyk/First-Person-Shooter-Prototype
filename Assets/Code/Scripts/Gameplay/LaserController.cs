@@ -9,6 +9,14 @@ public class LaserController : MonoBehaviour
 
     private Laser laser;
 
+    private void OnEnable()
+    {
+        foreach (Transform child in firePoint)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     public void EnableLaser()
     {
         foreach (Transform child in firePoint)
