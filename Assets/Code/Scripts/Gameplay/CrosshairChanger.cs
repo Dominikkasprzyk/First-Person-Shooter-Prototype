@@ -10,7 +10,8 @@ public class CrosshairChanger : MonoBehaviour
 
     public void ChangeCrosshair(Component sender, object data)
     {
-        switch ((Fabric)data)
+        WeaponSO weaponStats = (WeaponSO)data;
+        switch (weaponStats.DamageType)
         {
             case Fabric.Fire:
                 crosshair.sprite = fireCrosshair;

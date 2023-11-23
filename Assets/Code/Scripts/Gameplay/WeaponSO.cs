@@ -13,7 +13,7 @@ public class WeaponSO : ScriptableObject
     public float MinChargePercent { get; private set; }
 
     [field: SerializeField, Min(0), Tooltip("Time before weapon can be used after last attack. ")] 
-    private float timeBetweenAttacks;
+    public float TimeBetweenAttacks { get; private set; }
 
     [field: SerializeField, Tooltip("Damage of one attack or, if this is continous weapon, damage per second.")]
     public float Damage { get; private set; } = 1;
@@ -21,10 +21,7 @@ public class WeaponSO : ScriptableObject
     [field: SerializeField, Tooltip("Damage type.")]
     public Fabric DamageType { get; private set; }
 
-    public WaitForSeconds CoolDownWait { get; private set; }
+    [field: SerializeField, Min(0), Tooltip("Time the weapon has to be prepared for when drawn.")]
+    public float PreparationTime { get; private set; }
 
-    private void OnEnable()
-    {
-        CoolDownWait = new WaitForSeconds(timeBetweenAttacks);
-    }
 }

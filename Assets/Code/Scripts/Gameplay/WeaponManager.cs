@@ -78,6 +78,6 @@ public class WeaponManager : MonoBehaviour
             weapon.gameObject.SetActive(false);
         }
         _spawnedWeapons[currentWeaponIndex].gameObject.SetActive(true);
-        _weaponChangedEvent.Raise(this, _spawnedWeapons[currentWeaponIndex].weaponBaseStats.DamageType);
+        _weaponChangedEvent.Raise(this, _spawnedWeapons[currentWeaponIndex].weaponBaseStats);
     }
 }

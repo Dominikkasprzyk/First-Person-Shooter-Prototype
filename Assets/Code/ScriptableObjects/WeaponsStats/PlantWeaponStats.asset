@@ -15,6 +15,7 @@ MonoBehaviour:
   <IsFullyAuto>k__BackingField: 1
   <MaxChargeUpTime>k__BackingField: 0
   <MinChargePercent>k__BackingField: 0
-  timeBetweenAttacks: 0.5
+  <TimeBetweenAttacks>k__BackingField: 1
   <Damage>k__BackingField: 1
   <DamageType>k__BackingField: 2
+  <PreparationTime>k__BackingField: 1

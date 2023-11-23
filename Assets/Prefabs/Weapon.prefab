@@ -182,6 +182,8 @@ MonoBehaviour:
     type: 2}
   inputManager: {fileID: 11400000, guid: f1f98dfba1d2695429583b16bc7eb024, type: 2}
   weaponFiredEvent: {fileID: 11400000, guid: a5384e32e75d1a740a1f9481332927ae, type: 2}
+  weaponChargingEvent: {fileID: 11400000, guid: ac478eac3e0ffb54a9efd07897c59afd,
+    type: 2}
   range: 50
 --- !u!114 &5473352683943040982
 MonoBehaviour:
