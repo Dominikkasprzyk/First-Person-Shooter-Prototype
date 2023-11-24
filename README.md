@@ -1,6 +1,6 @@
 # First Person Shooter - prototype in Unity
 
-First Person Shooter game prototype utilizing event-based architecture with the use of unity events, unity actions, and custom Scriptable Objects game events to ensure modularity and scalability.
+First Person Shooter game prototype utilizing event-based architecture to ensure modularity and scalability.
 ### This project uses Unity's Universal Render Pipeline (URP).
 
 ## Table of Contents
