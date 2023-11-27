@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Custom/Input Manager")]
 public class InputManager : ScriptableObject
 {
     public event UnityAction jumpEvent;

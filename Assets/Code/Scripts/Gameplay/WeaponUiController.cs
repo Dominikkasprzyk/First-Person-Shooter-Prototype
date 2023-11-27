@@ -8,9 +8,11 @@ public class WeaponUiController : MonoBehaviour
     [SerializeField] private Slider _weaponCooldownSlider;
     [SerializeField] private Slider _weaponChargeSlider;
     [SerializeField] private float _sliderUpdateTimeStep = 0.1f;
+    [Tooltip("Show cooldown slider for weapons with cooldown above this one.")]
+    [Min(0)][SerializeField] private float _showCooldownThreshold;
 
     private WeaponSO _currentWeaponStats;
-    private Coroutine _chargeRoutine;
+    private Coroutine _chargeRoutine, _cooldownRoutine;
 
     public void AdjustUiToWeapon(Component sender, object data)
     {
@@ -18,36 +20,22 @@ public class WeaponUiController : MonoBehaviour
         _currentWeaponStats = (WeaponSO)data;
         _weaponCooldownSlider.value = 1;
         _weaponChargeSlider.value = 0;
-        if (_currentWeaponStats.TimeBetweenAttacks > 0)
+        if (_currentWeaponStats.PreparationTime > 0)
             StartCoroutine(SliderRoutine(_weaponCooldownSlider, _currentWeaponStats.PreparationTime));
-        
-        if (_currentWeaponStats.MaxChargeUpTime > 0)
-        {
-            _weaponChargeSlider.gameObject.SetActive(true);
-        } else
-        {
-            _weaponChargeSlider.gameObject.SetActive(false);
-        }
-
-        if(_currentWeaponStats.TimeBetweenAttacks > 0)
-        {
-            _weaponCooldownSlider.gameObject.SetActive(true);
-        } else
-        {
-            _weaponCooldownSlider.gameObject.SetActive(false);
-        }
     }
 
     public void ActivateCooldownSlider(Component sender, object data)
     {
         if (_currentWeaponStats)
         {
-            _weaponChargeSlider.value = 0;
-            if (_chargeRoutine != null)
-                StopCoroutine(_chargeRoutine);
-            if (_currentWeaponStats.TimeBetweenAttacks > 0)
+            _weaponChargeSlider.gameObject.SetActive(false);
+            if(_cooldownRoutine != null)
             {
-                StartCoroutine(SliderRoutine(_weaponCooldownSlider, _currentWeaponStats.TimeBetweenAttacks));
+                StopCoroutine(_cooldownRoutine);
+            }
+            if (_currentWeaponStats.TimeBetweenAttacks > _showCooldownThreshold)
+            {
+                _cooldownRoutine = StartCoroutine(SliderRoutine(_weaponCooldownSlider, _currentWeaponStats.TimeBetweenAttacks));
             }
         }
     }
@@ -64,13 +52,17 @@ public class WeaponUiController : MonoBehaviour
         } else
         {
             _weaponChargeSlider.value = 0;
-            if(_chargeRoutine != null)
+            if (_chargeRoutine != null)
+            {
                 StopCoroutine(_chargeRoutine);
+                _weaponChargeSlider.gameObject.SetActive(false);
+            }
         }
     }
 
     private IEnumerator SliderRoutine(Slider slider, float timeToWait)
     {
+        slider.gameObject.SetActive(true);
         slider.value = 0;
         float currentTime = 0f;
         while (currentTime < timeToWait)
@@ -83,5 +75,6 @@ public class WeaponUiController : MonoBehaviour
                 slider.value = 1;
             }
         }
+        slider.gameObject.SetActive(false);
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Custom/Weapon SO")]
 public class WeaponSO : ScriptableObject
 {
     [field: SerializeField, Tooltip("True if this weapon supports full auto mode. False if the weapon should be released to fire after charging. ")] 
@@ -23,5 +23,4 @@ public class WeaponSO : ScriptableObject
 
     [field: SerializeField, Min(0), Tooltip("Time the weapon has to be prepared for when drawn.")]
     public float PreparationTime { get; private set; }
-
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// The GameEvent class represents generic scriptable object game event without parameters. 
 /// </summary>
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Custom/Game Event")]
 public class GameEvent : ScriptableObject
 {
     /// <summary>

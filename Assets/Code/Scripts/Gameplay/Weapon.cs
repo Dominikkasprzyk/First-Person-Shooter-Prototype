@@ -43,7 +43,6 @@ public abstract class Weapon : MonoBehaviour
         _holdingCharge = false;
         if (weaponBaseStats.MaxChargeUpTime > 0)
         {
-            Debug.Log(_canFire);
             if (_chargePercent >= weaponBaseStats.MinChargePercent && _canFire)
             {
                 PerformAttack();

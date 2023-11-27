@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PlantWeaponStats
   m_EditorClassIdentifier: 
   <IsFullyAuto>k__BackingField: 1
-  <MaxChargeUpTime>k__BackingField: 0
-  <MinChargePercent>k__BackingField: 0
-  <TimeBetweenAttacks>k__BackingField: 1
-  <Damage>k__BackingField: 1
+  <MaxChargeUpTime>k__BackingField: 1
+  <MinChargePercent>k__BackingField: 1
+  <TimeBetweenAttacks>k__BackingField: 0.5
+  <Damage>k__BackingField: 5
   <DamageType>k__BackingField: 2
-  <PreparationTime>k__BackingField: 1
+  <PreparationTime>k__BackingField: 0.5
+  <Range>k__BackingField: 0

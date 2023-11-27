@@ -99,5 +99,11 @@ PrefabInstance:
       propertyPath: damageType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7230401689690165517, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: <weaponBaseStats>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b6842ef34c6dda469c22e86a4b25278,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 350ef913000a25e4e9715cdb298f8665, type: 3}
