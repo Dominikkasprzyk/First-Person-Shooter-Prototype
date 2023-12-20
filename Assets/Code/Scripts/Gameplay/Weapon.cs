@@ -12,30 +12,24 @@ public abstract class Weapon : MonoBehaviour
     private bool _holdingCharge = false;
 
     [Header("References")]
-    [SerializeField] private InputManager inputManager;
+    [SerializeField] private InputManager _inputManager;
 
     [Header("Events")]
-    [SerializeField] private GameEvent weaponFiredEvent;
-    [SerializeField] private GameEvent weaponChargingEvent;
-
-    protected Transform playerCameraTransform;
+    [SerializeField] private GameEvent _weaponFiredEvent;
+    [SerializeField] private GameEvent _weaponChargingEvent;
+    [SerializeField] protected GameEvent _weaponHitEvent;
 
     private void OnEnable()
     {
-        inputManager.attackReleaseEvent += OnAttackRelease;
-        inputManager.attackChargeEvent += OnAttackCharge;
+        _inputManager.attackReleaseEvent += OnAttackRelease;
+        _inputManager.attackChargeEvent += OnAttackCharge;
         StartCoroutine(WaitBeforeAttack(weaponBaseStats.PreparationTime));
     }
 
     private void OnDisable()
     {
-        inputManager.attackReleaseEvent -= OnAttackRelease;
-        inputManager.attackChargeEvent -= OnAttackCharge;
-    }
-
-    private void Awake()
-    {
-        playerCameraTransform = Camera.main.transform;    
+        _inputManager.attackReleaseEvent -= OnAttackRelease;
+        _inputManager.attackChargeEvent -= OnAttackCharge;
     }
 
     private void OnAttackRelease()
@@ -51,7 +45,7 @@ public abstract class Weapon : MonoBehaviour
             {
                 StopCoroutine(_chargingRoutine);
                 _chargePercent = 0;
-                weaponChargingEvent.Raise(this, false);
+                _weaponChargingEvent.Raise(this, false);
             } 
         }
     }
@@ -70,7 +64,7 @@ public abstract class Weapon : MonoBehaviour
             if (_canFire)
             {
                 _chargingRoutine = StartCoroutine(ChargeWeaponUp());
-                weaponChargingEvent.Raise(this, true);
+                _weaponChargingEvent.Raise(this, true);
             } 
         }
     }
@@ -110,7 +104,7 @@ public abstract class Weapon : MonoBehaviour
 
     private void PerformAttack()
     {
-        weaponFiredEvent.Raise(this, null);
+        _weaponFiredEvent.Raise(this, null);
         Fire();
         StartCoroutine(WaitBeforeAttack(weaponBaseStats.TimeBetweenAttacks));
         _chargePercent = 0f;

@@ -4,7 +4,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement parameters")]
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float _forwardSpeed = 10f;
+    [SerializeField] private float _backwardSpeed = 5f;
     [SerializeField] private float jumpHeight = 10f;
     [SerializeField] private float gravitationalPull = 100f;
     [SerializeField] private float turnSensitivity = 10f;
@@ -14,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private Transform upperBodyRotatorTransform;
 
-    private Transform playerCameraTransform;
     private CharacterController characterController;
     private Vector2 horizontalVelocity = Vector2.zero;
     private Vector3 verticalVelocity = Vector3.zero;
@@ -42,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        playerCameraTransform = Camera.main.transform;
     }
 
     private void Start()
@@ -79,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
         // Look up/down
         lookUpDownRotation -= lookUpDownAmount;
         lookUpDownRotation = Mathf.Clamp(lookUpDownRotation, -maxLookUpDownRotation, maxLookUpDownRotation);
-        Vector3 cameraRotation = new Vector3(lookUpDownRotation, transform.eulerAngles.y, transform.eulerAngles.z);
-        playerCameraTransform.eulerAngles = cameraRotation;
+        Vector3 upperBodyRotation = new Vector3(lookUpDownRotation, transform.eulerAngles.y, transform.eulerAngles.z);
+        upperBodyRotatorTransform.eulerAngles = upperBodyRotation;
 
         // Vertical movement
         isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundMask);
@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(verticalVelocity * Time.deltaTime);
 
         // Horizontal movement
+        float speed = horizontalVelocity.y > 0 ? _forwardSpeed : _backwardSpeed;
         characterController.Move((transform.right * horizontalVelocity.x 
             + transform.forward * horizontalVelocity.y) 
             * speed * Time.deltaTime);  
