@@ -17,7 +17,7 @@ public class WeaponHitscanBased : Weapon
         RaycastHit hit;
         if (Physics.Raycast(_playerCameraTransform.position, _playerCameraTransform.forward, out hit, _range))
         {
-            _weaponHitEvent.Raise(this, hit.point);
+            _weaponHitEvent.Raise(this, new Pose(hit.point, Quaternion.identity));
             if (hit.collider.GetComponent<Damageable>() != null)
             {
                 hit.collider.GetComponent<Damageable>().TakeHit(weaponBaseStats.Damage, weaponBaseStats.DamageType);

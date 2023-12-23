@@ -9,10 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2569897757437882255}
-  - component: {fileID: 5628574047352074237}
   - component: {fileID: 4475209285973031658}
   - component: {fileID: 7230401689690165517}
   - component: {fileID: 5473352683943040982}
+  - component: {fileID: 2842306632317258138}
+  - component: {fileID: 4379817980550073048}
+  - component: {fileID: 4172781333138526022}
+  - component: {fileID: 718462297898556249}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -37,22 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5628574047352074237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2228031269646445505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ac55f90e1d0e84faff4f7b85d0cf52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laserPrefab: {fileID: 1959126674990218, guid: 7a33636dfd4b668449c601e33bb1b3b0,
-    type: 3}
-  firePoint: {fileID: 5978745178066170740}
-  singleShotTime: 0.2
 --- !u!82 &4475209285973031658
 AudioSource:
   m_ObjectHideFlags: 0
@@ -181,14 +168,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 443ea6c5282216441a427320673d8f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 91434141664288a4eb4b1771fc9daa61, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2842306632317258138}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2842306632317258138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228031269646445505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4795f30fb3a91940bbe3bafae947e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToSpawn: {fileID: 1105777178367904, guid: 1dbcce58db2f3e74ba6f093c77131553,
+    type: 3}
+  _defaultPoolCapacity: 3
+  _maxPoolCapacity: 10
+--- !u!114 &4379817980550073048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228031269646445505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1800a3e2ca3bea740aaf26d6f97e2cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chargeParticleSystem: {fileID: 3640971254577162075, guid: e816344dc6e14b248bc6d6df777c304b,
+    type: 3}
+  _fireEffect: {fileID: 7355505910056208297, guid: 56b5bda579fbd804382e9e93621d3070,
+    type: 3}
+  _firePoint: {fileID: 5978745178066170740}
+--- !u!114 &4172781333138526022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228031269646445505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443ea6c5282216441a427320673d8f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: ac478eac3e0ffb54a9efd07897c59afd, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4379817980550073048}
+        m_TargetAssemblyTypeName: GunEffectsController, Assembly-CSharp
+        m_MethodName: ActivateChargeEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &718462297898556249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228031269646445505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443ea6c5282216441a427320673d8f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: a5384e32e75d1a740a1f9481332927ae, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5628574047352074237}
-        m_TargetAssemblyTypeName: LaserController, Assembly-CSharp
-        m_MethodName: EnableLaser
-        m_Mode: 1
+      - m_Target: {fileID: 4379817980550073048}
+        m_TargetAssemblyTypeName: GunEffectsController, Assembly-CSharp
+        m_MethodName: ActivateFireEffect
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

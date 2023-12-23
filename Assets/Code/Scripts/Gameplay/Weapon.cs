@@ -87,6 +87,7 @@ public abstract class Weapon : MonoBehaviour
         }
         if(weaponBaseStats.IsFullyAuto)
         {
+            _weaponChargingEvent.Raise(this, false);
             PerformAttack();
         }
     }

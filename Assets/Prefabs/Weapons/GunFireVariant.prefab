@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 216996233988407461, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577951153248364797, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.14515851
+      objectReference: {fileID: 0}
     - target: {fileID: 2228031269646445505, guid: 350ef913000a25e4e9715cdb298f8665,
         type: 3}
       propertyPath: m_Name
@@ -67,6 +77,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2842306632317258138, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: _objectToSpawn
+      value: 
+      objectReference: {fileID: 4885696811823476532, guid: 1d432be6e4ea707468b97272d0ff2bf6,
+        type: 3}
+    - target: {fileID: 4379817980550073048, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: _fireEffect
+      value: 
+      objectReference: {fileID: 5797206755153415055, guid: 635a7c0e46d70a249ba6bb22a7de1643,
+        type: 3}
+    - target: {fileID: 4379817980550073048, guid: 350ef913000a25e4e9715cdb298f8665,
+        type: 3}
+      propertyPath: _chargeParticleSystem
+      value: 
+      objectReference: {fileID: 8802125117822402212, guid: 53c0fcde850181d4385f5d8cc034198a,
+        type: 3}
     - target: {fileID: 5628574047352074237, guid: 350ef913000a25e4e9715cdb298f8665,
         type: 3}
       propertyPath: laserPrefab
