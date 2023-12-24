@@ -6159,13 +6159,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25737f8076d175741a8662f5a943c303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forwardSpeed: 10
-  _backwardSpeed: 5
-  jumpHeight: 5
+  _forwardSpeed: 7
+  _backwardSpeed: 3
+  jumpHeight: 2
   gravitationalPull: 100
   turnSensitivity: 50
   lookUpDownSensitivity: 0.15
-  maxLookUpDownRotation: 50
+  maxLookUpRotation: 90
+  maxLookDownRotation: 50
   groundMask:
     serializedVersion: 2
     m_Bits: 8

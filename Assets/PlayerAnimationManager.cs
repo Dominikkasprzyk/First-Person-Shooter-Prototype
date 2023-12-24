@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,23 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private void OnJump()
     {
-        //_animator.SetBool("isJumping", true);
+        _animator.SetBool("isJumping", true);
+        print("jump");
+        StartCoroutine(WaitForJumpEnd());
+    }
+
+    private IEnumerator WaitForJumpEnd()
+    {
+        float previousY;
+        float currentY;
+        do
+        {
+            previousY = transform.position.y;
+            yield return new WaitForEndOfFrame();
+            currentY = transform.position.y;
+
+        } while (previousY != currentY);
+        print("jump end");
+        _animator.SetBool("isJumping", false);
     }
 }
