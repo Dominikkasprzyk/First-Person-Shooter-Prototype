@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravitationalPull = 100f;
     [SerializeField] private float turnSensitivity = 10f;
     [SerializeField] private float lookUpDownSensitivity = 0.5f;
-    [SerializeField] private float maxLookUpDownRotation = 85f;
+    [SerializeField] private float maxLookUpRotation = 90f;
+    [SerializeField] private float maxLookDownRotation = 50f;
     [SerializeField] private LayerMask groundMask;
     
     [Header("References")]
@@ -78,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Look up/down
         lookUpDownRotation -= lookUpDownAmount;
-        lookUpDownRotation = Mathf.Clamp(lookUpDownRotation, -maxLookUpDownRotation, maxLookUpDownRotation);
+        lookUpDownRotation = Mathf.Clamp(lookUpDownRotation, -maxLookUpRotation, maxLookDownRotation);
         Vector3 upperBodyRotation = new Vector3(lookUpDownRotation, transform.eulerAngles.y, transform.eulerAngles.z);
         upperBodyRotatorTransform.eulerAngles = upperBodyRotation;
 
